@@ -1,10 +1,11 @@
 import React from 'react'
 
-import { Route, Link, Router, Routes } from 'react-router-dom';
+import { Route, Link, Router } from 'react-router-dom';
 import { Layout, Typography, Space} from 'antd';
 import { Navbar, Exchanges, HomePage, Cryptocurrencies, News, CryptoDetails } from './components';
 
 import './App.css'
+import { Switch } from 'react-router-dom/cjs/react-router-dom.min';
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
       <div className='main'>
         <Layout>
           <div className='routes'>
-            <Routes>
+            <Switch>
               <Route exact path='/'>
                   <HomePage />
               </Route>
@@ -31,12 +32,20 @@ const App = () => {
               <Route exact path='/news'>
                 <News />
               </Route>
-            </Routes>       
+            </Switch>      
           </div>
         </Layout>
-      </div>
       <div className='footer'>
-
+        <Typography.Title level={5} style={{color:'white', textAlign:'center'}}>
+          CryptoRum <br/>
+          All rights reserved.
+        </Typography.Title>
+        <Space>
+          <Link to='/'>Home</Link>
+          <Link to='/exchanges'>Exchanges</Link>
+          <Link to='/news'>News</Link>
+        </Space>
+      </div>
       </div>
     </div>
   )
